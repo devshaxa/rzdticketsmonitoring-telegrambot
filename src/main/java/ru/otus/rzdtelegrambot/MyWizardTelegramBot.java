@@ -44,7 +44,7 @@ public class MyWizardTelegramBot extends TelegramWebhookBot {
     public SendMessage onWebhookUpdateReceived(Update update) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getMessage().getChatId());
-        sendMessage.setText("Salom");
+        sendMessage.setText("Xayr");
         return sendMessage;
     }
     public void sendMessage(SendMessage sendMessage) {
