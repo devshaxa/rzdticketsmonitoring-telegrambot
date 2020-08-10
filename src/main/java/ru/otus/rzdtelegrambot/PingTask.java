@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 @Service
@@ -23,13 +22,11 @@ public class PingTask {
 
     @Scheduled(fixedRateString = "${pingtask.period}")
     public void pingMe(){
-        URL url = null;
         try {
-            url = new URL(getUrl());
+            URL url = new URL(getUrl());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.connect();
             connection.disconnect();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
